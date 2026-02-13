@@ -40,5 +40,5 @@ export interface IHeroInfo {
   role?: string;
   winRate?: string;
   matches?: string;
-  mostPlayed?: string | null;
+  mostPlayed?: boolean;
 }

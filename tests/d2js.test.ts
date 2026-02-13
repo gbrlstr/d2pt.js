@@ -48,7 +48,7 @@ describe("D2PtScraper", () => {
 
       const result = await d2pt.getHeroesMeta("mid");
       expect(result).toEqual(mockHeroes);
-      expect(scrapeMetaHeroes).toHaveBeenCalledWith("mid", 5);
+      expect(scrapeMetaHeroes).toHaveBeenCalledWith("mid", 10);
     });
   });
 
@@ -58,7 +58,7 @@ describe("D2PtScraper", () => {
         matches: "2829",
         winRate: "0.537",
         role: "pos 1",
-        players: "4668",
+        mostPlayed: false,
       };
       (scrapeHero as jest.Mock).mockResolvedValue(mockHeroInfo);
 

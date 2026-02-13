@@ -41,8 +41,8 @@ export async function scrapeHero(
           ?.innerText;
 
         const mostPlayed = button?.querySelector(".absolute.yellow")
-          ? "Most Played"
-          : null;
+          ? true
+          : false;
 
         const heroInfo: IHeroInfo = {
           role,

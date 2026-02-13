@@ -1,7 +1,7 @@
 {
   "name": "d2pt.js",
-  "version": "1.0.9",
-  "description": "A Node.js Dota2ProTracker Scraper",
+  "version": "2.0.0",
+  "description": "Scraper Node.js para Dota 2 Pro Tracker — meta de heróis e informações por herói",
   "main": "./lib/index.js",
   "module": "./lib/index.mjs",
   "exports": {
@@ -18,30 +18,40 @@
   },
   "scripts": {
     "build": "npm run clean && npm run compile",
-    "clean": "rm -rf ./lib",
-    "test": "jest",
-    "watch": "npm run build -- --watch",
+    "clean": "node -e \"require('fs').rmSync('lib', {recursive: true, force: true})\"",
     "compile": "tsup ./src/index.ts --format cjs,esm --dts --outDir ./lib",
-    "version": "npm run build && git add -A dist",
-    "postversion": "git push && git push --tags && rm -rf build/temp"
+    "test": "jest",
+    "example:hero": "npx ts-node examples/example_hero.ts",
+    "example:meta": "npx ts-node examples/example_meta_hero.ts",
+    "watch": "npm run build -- --watch",
+    "prepublishOnly": "npm run build"
   },
   "files": [
     "lib/**/*.js",
-    "lib/**/*.d.ts"
+    "lib/**/*.mjs",
+    "lib/**/*.d.ts",
+    "lib/**/*.d.mts"
   ],
   "keywords": [
     "dota2protracker",
+    "dota2-pro-tracker",
     "stratz",
     "dota",
     "dota2",
-    "scraper"
+    "scraper",
+    "meta",
+    "heroes"
   ],
-  "author": "GBRL DEV (https://github.com/gabrielcstr)",
+  "author": "GBRL DEV (https://github.com/gbrlstr)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gabrielcstr/d2pt.js/issues"
+    "url": "https://github.com/gbrlstr/d2pt.js/issues"
   },
-  "homepage": "https://github.com/gabrielcstr/d2pt.js#readme",
+  "homepage": "https://github.com/gbrlstr/d2pt.js#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gbrlstr/d2pt.js.git"
+  },
   "dependencies": {
     "puppeteer": "^22.15.0",
     "puppeteer-extra": "^3.3.6",
@@ -61,9 +71,5 @@
   },
   "engines": {
     "node": ">=18.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GabrielCSTR/d2pt.js.git"
   }
 }
