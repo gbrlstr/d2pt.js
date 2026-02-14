@@ -1,35 +1,35 @@
 # d2pt.js
 
-## 📃 Sobre
+## 📃 About
 
 <a href="https://dota2protracker.com"><img src="https://dota2protracker.com/static/svg/logo_mark.svg" align="right" width="200px"/></a>
 
-**d2pt.js** é um scraper Node.js para o [Dota 2 Pro Tracker](https://dota2protracker.com/hero), focado em meta de heróis e estatísticas por herói.
+**d2pt.js** is a Node.js scraper for [Dota 2 Pro Tracker](https://dota2protracker.com/hero), focused on hero meta and per-hero statistics.
 
-### Funcionalidades
+### Features
 
-- **Meta de heróis** — ranking por posição (Carry, Mid, Offlane, Suporte)
-- **Info por herói** — partidas, win rate e role mais jogada para um herói específico
+- **Hero meta** — ranking by position (Carry, Mid, Offlane, Support)
+- **Hero info** — matches, win rate, and most-played role for a specific hero
 
-**Requisito:** Node.js 18+
+**Requirement:** Node.js 18+
 
 ---
 
-## Instalação
+## Installation
 
 ```bash
 npm install d2pt.js
-# ou
+# or
 yarn add d2pt.js
-# ou
+# or
 pnpm add d2pt.js
 ```
 
 ---
 
-## Uso rápido
+## Quick start
 
-Crie uma instância e use os métodos (todos retornam **Promise**):
+Create an instance and use the methods (all return a **Promise**):
 
 ```javascript
 const { D2PtScraper } = require("d2pt.js");
@@ -38,16 +38,16 @@ const { D2PtScraper } = require("d2pt.js");
 const d2pt = new D2PtScraper();
 ```
 
-### `getHeroInfo(heroName)` — informações de um herói
+### `getHeroInfo(heroName)` — hero information
 
-Retorna estatísticas do herói por **role** (All Roles, Carry, Mid, Offlane, Support, Hard Support): partidas, win rate e qual é a role mais jogada.
+Returns hero stats by **role** (All Roles, Carry, Mid, Offlane, Support, Hard Support): matches, win rate, and which role is most played.
 
 ```javascript
 const heroInfo = await d2pt.getHeroInfo("Anti-Mage");
 console.log(heroInfo);
 ```
 
-**Exemplo de retorno:**
+**Example response:**
 
 ```json
 [
@@ -72,25 +72,25 @@ console.log(heroInfo);
 ]
 ```
 
-- `role` — posição (All Roles, Carry, Mid, Offlane, Support, Hard Support)
-- `matches` — quantidade de partidas (string)
-- `winRate` — taxa de vitória (ex: `"49%"`)
-- `mostPlayed` — `true` na role mais jogada
+- `role` — position (All Roles, Carry, Mid, Offlane, Support, Hard Support)
+- `matches` — number of matches (string)
+- `winRate` — win rate (e.g. `"49%"`)
+- `mostPlayed` — `true` for the most-played role
 
 ---
 
-### `getHeroesMeta(category, max_result?)` — heróis em meta por posição
+### `getHeroesMeta(category, max_result?)` — meta heroes by position
 
-Retorna a lista de heróis em meta para uma **categoria**.  
-**Categorias:** `"hc"` (Carry), `"mid"`, `"off"`, `"sup4"`, `"sup5"`, `"pos4"`, `"pos5"`, `"All"`, `"Carry"`, `"Mid"`, `"Off"`.
+Returns the list of meta heroes for a **category**.  
+**Categories:** `"hc"` (Carry), `"mid"`, `"off"`, `"sup4"`, `"sup5"`, `"pos4"`, `"pos5"`, `"All"`, `"Carry"`, `"Mid"`, `"Off"`.
 
 ```javascript
-// Top 3 carries em meta
+// Top 3 carries in meta
 const heroes = await d2pt.getHeroesMeta("hc", 3);
 console.log(heroes);
 ```
 
-**Exemplo de retorno:**
+**Example response:**
 
 ```json
 [
@@ -124,18 +124,18 @@ console.log(heroes);
 ]
 ```
 
-- `name` — nome do herói  
+- `name` — hero name  
 - `rating` — rating (string)  
-- `matches` — partidas (string)  
-- `winRate` — win rate (ex: `"55.0%"`)  
-- `contestRate` — contest rate (ex: `"44.1%"`)  
-- `radiantWinRate` / `direWinRate` — win rate por lado  
+- `matches` — matches (string)  
+- `winRate` — win rate (e.g. `"55.0%"`)  
+- `contestRate` — contest rate (e.g. `"44.1%"`)  
+- `radiantWinRate` / `direWinRate` — win rate per side  
 
-`max_result` é opcional; o padrão é `10`.
+`max_result` is optional; default is `10`.
 
 ---
 
-## Exemplo completo (async/await)
+## Full example (async/await)
 
 ```javascript
 const { D2PtScraper } = require("d2pt.js");
@@ -153,7 +153,7 @@ async function main() {
 main().catch(console.error);
 ```
 
-Com **then/catch**:
+With **then/catch**:
 
 ```javascript
 d2pt
@@ -164,7 +164,7 @@ d2pt
 
 ---
 
-## Desenvolvimento
+## Development
 
 ```bash
 git clone <repo>
@@ -172,30 +172,31 @@ cd d2pt.js
 npm install
 ```
 
-| Comando | Descrição |
-|--------|-----------|
-| `npm run build` | Limpa e compila (gera `lib/`) |
-| `npm run example:hero` | Exemplo só de herói (ts-node) |
-| `npm run example:meta` | Exemplo só de meta (ts-node) |
-| `npm run test` | Testes (Jest) |
-| `npm run watch` | Build em modo watch |
+| Command | Description |
+|--------|-------------|
+| `npm run build` | Clean and compile (outputs to `lib/`) |
+| `npm run example` | Run example using built `lib/` |
+| `npm run example:hero` | Hero-only example (ts-node) |
+| `npm run example:meta` | Meta-only example (ts-node) |
+| `npm run test` | Run tests (Jest) |
+| `npm run watch` | Build in watch mode |
 
 ---
 
-## 💰 Apoie o projeto
+## 💰 Support the project
 
 [![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/gabriel.dev/)
 
 ---
 
-## 👷 Autor
+## 👷 Author
 
 [![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=flat-square&logo=Twitter&logoColor=white)](https://twitter.com/gbrl_str) [![Twitch](https://img.shields.io/badge/Twitch-%239146FF.svg?style=flat-square&logo=Twitch&logoColor=white)](https://twitch.tv/xstrdoto)
 
-Feito com 💖 e JavaScript.
+Made with 💖 and JavaScript.
 
-## Licença
+## License
 
 [MIT](https://github.com/gbrlstr/d2pt.js/blob/master/LICENSE)
 
-*Este projeto não é afiliado ao [Dota 2 Pro Tracker](https://dota2protracker.com).*
+*This project is not affiliated with [Dota 2 Pro Tracker](https://dota2protracker.com).*
