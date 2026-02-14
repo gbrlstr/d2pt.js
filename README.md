@@ -191,7 +191,7 @@ npm install
 
 ## 👷‍♂️ Creator
 
-[![Contributors](https://contrib.rocks/image?repo=GabrielCSTR/dota2protracker-scraper)](https://github.com/GabrielCSTR)
+[![Contributors](https://contrib.rocks/image?repo=gbrlstr/dota2protracker-scraper)](https://github.com/gbrlstr)
 
 [![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=flat-square&logo=Twitter&logoColor=white)](https://twitter.com/gbrl_str) [![Twitch](https://img.shields.io/badge/Twitch-%239146FF.svg?style=flat-square&logo=Twitch&logoColor=white)](https://twitch.tv/xstrdoto)
 
