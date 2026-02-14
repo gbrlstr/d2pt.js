@@ -1,6 +1,6 @@
 {
   "name": "d2pt.js",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Scraper Node.js para Dota 2 Pro Tracker — meta de heróis e informações por herói",
   "main": "./lib/index.js",
   "module": "./lib/index.mjs",
